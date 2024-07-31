@@ -14,8 +14,8 @@
             tempInput.value = text;
             document.body.appendChild(tempInput);
             tempInput.select();
-            // tempInput.setSelectionRange(0, 9999999)
-            navigator.clipboard.writeText(text)
+            tempInput.setSelectionRange(0, 9999999)
+            navigator.clipboard.writeText(tempInput.value)
             document.body.removeChild(tempInput);
         }
 
