@@ -14,7 +14,8 @@
             tempInput.value = text;
             document.body.appendChild(tempInput);
             tempInput.select();
-            document.execCommand('copy');
+            // tempInput.setSelectionRange(0, 9999999)
+            navigator.clipboard.writeText(text)
             document.body.removeChild(tempInput);
         }
 
