@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copy to Clipboard</title>
+</head>
+<body>
+    <script>
+        function copyToClipboard(text) {
+            const tempInput = document.createElement('input');
+            tempInput.style.position = 'absolute';
+            tempInput.style.left = '-9999px';
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+        }
+
+        // Get the URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const valueToCopy = urlParams.get('copyValue');
+
+        if (valueToCopy) {
+            copyToClipboard(valueToCopy);
+            alert('Value copied to clipboard: ' + valueToCopy);
+        }
+    </script>
+</body>
+</html>
