@@ -21,7 +21,7 @@
 
         // Get the URL parameter
         const urlParams = new URLSearchParams(window.location.search);
-        const valueToCopy = urlParams.get('copyValue');
+        const valueToCopy = urlParams.get('copyValue').substring(1);
 
         async function confirmCopy(){
             if (valueToCopy) {
