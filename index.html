@@ -23,13 +23,16 @@
         const urlParams = new URLSearchParams(window.location.search);
         const valueToCopy = urlParams.get('copyValue');
 
-        if (valueToCopy) {
+        async function confirmCopy(){
+            if (valueToCopy) {
             copyToClipboard(valueToCopy);
-            let copiedValue = navigator.clipboard.readText()
+            let copiedValue = await navigator.clipboard.readText()
             if (copiedValue === valueToCopy) {
                 alert('Query Copied, You can close this tab!')
             }
         }
+        }
+        confirmCopy()
     </script>
 </body>
 </html>
